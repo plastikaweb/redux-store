@@ -34,8 +34,8 @@ destroy.addEventListener('click', unsubscribe, false);
 todoList.addEventListener('click', function(event) {
   const target = event.target as HTMLButtonElement;
   if (target.nodeName.toLowerCase() === 'button') {
-    console.log(target);
+    const data = <string>target.dataset.todo;
+    const todo = JSON.parse(data);
+    store.dispatch(new fromStore.RemoveTodo(todo));
   }
 });
-
-store.subscribe(state => console.log('STATE::: ', state));

@@ -12,9 +12,12 @@ export function todoReducer(
 ) {
   switch (action.type) {
     case fromActions.ADD_TODO: {
-      console.log(action);
       const todo = action.payload;
       const data = [...state.data, todo];
+      return { ...state, data };
+    }
+    case fromActions.REMOVE_TODO: {
+      const data = state.data.filter(item =>  item.label !== action.payload.label);
       return { ...state, data };
     }
   }
