@@ -25,6 +25,7 @@ button.addEventListener(
   false
 );
 
+
 const unsubscribe = store.subscribe(state => {
   renderTodos(state.todos.data);
 });
